@@ -17,11 +17,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var thanksLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
 
+    // the timer for text fade effect
+    var timer: NSTimer = NSTimer()
+    
     var locationList: [String] = ["Parking Experience", "Check in Experience", "Security Experience", "Shopping Experience", "Boarding Experience"]
     var locationIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Initialise the location information for the label
         locationIndex = 0
         locationLabel.text = locationList[locationIndex]
         thanksLabel.hidden = true
@@ -30,17 +35,22 @@ class ViewController: UIViewController {
         locationLabel.userInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.locationLabelTapped))
         locationLabel.addGestureRecognizer(tapGesture)
+        
+        //set up the notification listener to change the text when beacon is ranged
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateLocation), name: "updateLocation", object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // the notificaiton for a ranged beacon
+    func updateLocation(notification: NSNotification) {
+        let region:String = notification.object as! String
+        //update the location text to display the current beacon
+        locationLabel.text = region
     }
 
     @IBAction func happyButtonTouched(sender: AnyObject) {
         print("sending happy face")
         showThanks("Very Happy - Thanks")
-        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":5];
+        let json = ["MachineId":"" + locationLabel.text!, "Satisfaction":5];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
@@ -48,7 +58,7 @@ class ViewController: UIViewController {
     @IBAction func quiteHappyButtonTouched(sender: AnyObject) {
         print("sending quite happy face")
         showThanks("Quite Happy - Thanks")
-        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":4];
+        let json = ["MachineId":"" + locationLabel.text!, "Satisfaction":4];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
@@ -56,7 +66,7 @@ class ViewController: UIViewController {
     @IBAction func quiteSadButtonTouhed(sender: AnyObject) {
         print("sending quite sad face")
         showThanks("Quite Sad - Sorry")
-        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":2];
+        let json = ["MachineId":"" + locationLabel.text!, "Satisfaction":2];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
@@ -64,7 +74,7 @@ class ViewController: UIViewController {
     @IBAction func sadButtonTouched(sender: AnyObject) {
         print("sending sad")
         showThanks("Very Sad - Sorry")
-        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":1];
+        let json = ["MachineId":"" + locationLabel.text!, "Satisfaction":1];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
@@ -94,14 +104,18 @@ class ViewController: UIViewController {
     }
     
     func showThanks(text: String) {
+        if(timer.valid) {
+            timer.invalidate()
+        }
+        self.view.layer.removeAllAnimations()
         thanksLabel.text = text
         thanksLabel.alpha = 1
         thanksLabel.hidden = false
-        var _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.hideThanks), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.hideThanks), userInfo: nil, repeats: false)
     }
     
     func hideThanks() {
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animateWithDuration(0.5, animations: {
             self.thanksLabel.alpha = 0
             }, completion: {
                 (value: Bool) in
@@ -116,5 +130,10 @@ class ViewController: UIViewController {
             locationIndex = 0;
         }
         locationLabel.text = locationList[locationIndex];
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }

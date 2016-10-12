@@ -12,6 +12,8 @@
 		759327681D5497BA00EB5900 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759327661D5497BA00EB5900 /* Main.storyboard */; };
 		7593276A1D5497BA00EB5900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759327691D5497BA00EB5900 /* Assets.xcassets */; };
 		7593276D1D5497BA00EB5900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7593276B1D5497BA00EB5900 /* LaunchScreen.storyboard */; };
+		75C9CAB51DAEBA0B006E7178 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C9CAB41DAEBA0B006E7178 /* CoreLocation.framework */; };
+		75C9CAB71DAEBD51006E7178 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C9CAB61DAEBD51006E7178 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		759327691D5497BA00EB5900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7593276C1D5497BA00EB5900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7593276E1D5497BA00EB5900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C9CAB41DAEBA0B006E7178 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		75C9CAB61DAEBD51006E7178 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C9CAB71DAEBD51006E7178 /* MapKit.framework in Frameworks */,
+				75C9CAB51DAEBA0B006E7178 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				759327611D5497BA00EB5900 /* Cusotmer Satisfaction */,
 				759327601D5497BA00EB5900 /* Products */,
+				75C9CAB31DAEBA0B006E7178 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +70,15 @@
 			);
 			name = "Cusotmer Satisfaction";
 			path = "Customer Satisfaction";
+			sourceTree = "<group>";
+		};
+		75C9CAB31DAEBA0B006E7178 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75C9CAB61DAEBD51006E7178 /* MapKit.framework */,
+				75C9CAB41DAEBA0B006E7178 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +114,11 @@
 					7593275E1D5497BA00EB5900 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WQ2T93P22;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -260,16 +281,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: salesforce.com, inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer: SImon Cook (TC57KP7AA7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SImon Cook (TC57KP7AA7)";
 				DEVELOPMENT_TEAM = 4WQ2T93P22;
 				INFOPLIST_FILE = "Customer Satisfaction/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.salesforce.internal.Customer-Satisfaction";
 				PRODUCT_NAME = "Customer Satisfaction";
-				PROVISIONING_PROFILE = "cf4dffed-c69b-4077-9980-c24648d88952";
-				PROVISIONING_PROFILE_SPECIFIER = "Internal Generic 2016";
+				PROVISIONING_PROFILE = "79a18361-f0b3-4177-b8aa-b4d66e4f356d";
+				PROVISIONING_PROFILE_SPECIFIER = "Internal Generic Dev Profile";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
