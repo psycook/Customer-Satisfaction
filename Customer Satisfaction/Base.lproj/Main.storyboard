@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-Bo-XjQ">
-                                <rect key="frame" x="250" y="134" width="100" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-Bo-XjQ">
+                                <frame key="frameInset" minX="250" minY="134" width="100" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="4Hy-6j-rzf"/>
                                     <constraint firstAttribute="height" constant="85" id="A2K-Np-OIN"/>
@@ -44,8 +45,8 @@
                                     <action selector="happyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2mC-uT-h2H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-qn-Rda">
-                                <rect key="frame" x="250" y="429" width="100" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-qn-Rda">
+                                <frame key="frameInset" minX="250" minY="429" width="100" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="FB5-y1-FaS"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="I3d-Ij-vbx"/>
@@ -71,14 +72,14 @@
                                     <action selector="sadButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zqt-Eb-6v1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security Experience" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Ke-buY">
-                                <rect key="frame" x="0.0" y="54" width="600" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Security Experience" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Ke-buY">
+                                <frame key="frameInset" minY="54" width="600" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-v2-hFh">
-                                <rect key="frame" x="179" y="505" width="243" height="75"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-v2-hFh">
+                                <frame key="frameInset" minX="179" minY="505" width="243" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="75" id="65Z-co-1ek"/>
                                     <constraint firstAttribute="height" constant="75" id="EYp-dJ-fJa"/>
@@ -88,8 +89,8 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="243" id="uIA-Zm-npQ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7Z-6a-iZQ">
-                                <rect key="frame" x="250" y="235" width="100" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7Z-6a-iZQ">
+                                <frame key="frameInset" minX="250" minY="235" width="100" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="9kN-lZ-wMY"/>
                                     <constraint firstAttribute="height" constant="85" id="A4V-R0-d7O"/>
@@ -119,8 +120,8 @@
                                     <action selector="quiteHappyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FUj-oB-R17"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK1-Nz-gI9">
-                                <rect key="frame" x="250" y="328" width="100" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK1-Nz-gI9">
+                                <frame key="frameInset" minX="250" minY="328" width="100" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2xv-3f-Fu6"/>
                                     <constraint firstAttribute="width" constant="126" id="72W-2I-L39"/>
@@ -150,23 +151,31 @@
                                     <action selector="quiteSadButtonTouhed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eem-sh-p3K"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please tell us about your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmQ-um-3aM">
-                                <rect key="frame" x="207" y="36" width="187" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please tell us about your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmQ-um-3aM">
+                                <frame key="frameInset" minX="207" minY="36" width="187" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thanks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGS-g5-dYJ" userLabel="ThanksLable">
+                                <frame key="frameInset" minX="207" minY="102" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2AH-Ke-buY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="000-As-XuT"/>
                             <constraint firstItem="SSM-Bo-XjQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Ok-A3-wrJ"/>
+                            <constraint firstItem="rGS-g5-dYJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2VS-8b-ryg"/>
                             <constraint firstItem="dMx-qn-Rda" firstAttribute="top" secondItem="uK1-Nz-gI9" secondAttribute="bottom" constant="16" id="DWB-LE-Yge"/>
                             <constraint firstItem="r7Z-6a-iZQ" firstAttribute="top" secondItem="SSM-Bo-XjQ" secondAttribute="bottom" constant="16" id="FZm-lg-JGE"/>
                             <constraint firstItem="SSM-Bo-XjQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GrC-U5-ZZ8"/>
                             <constraint firstItem="kmQ-um-3aM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IN7-at-w5j"/>
                             <constraint firstItem="kmQ-um-3aM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Kci-yZ-PMZ"/>
                             <constraint firstItem="uK1-Nz-gI9" firstAttribute="top" secondItem="r7Z-6a-iZQ" secondAttribute="bottom" constant="8" id="Kxo-Gv-N6B"/>
+                            <constraint firstItem="rGS-g5-dYJ" firstAttribute="top" secondItem="2AH-Ke-buY" secondAttribute="bottom" constant="8" id="LyX-dZ-jTy"/>
                             <constraint firstItem="ROU-v2-hFh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b3q-LB-oIL"/>
                             <constraint firstAttribute="trailing" secondItem="2AH-Ke-buY" secondAttribute="trailing" id="cO5-OD-p0l"/>
                             <constraint firstItem="2AH-Ke-buY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d9S-tO-DQ5"/>
@@ -185,9 +194,11 @@
                     </view>
                     <connections>
                         <outlet property="happyButton" destination="SSM-Bo-XjQ" id="vZf-ZD-evQ"/>
+                        <outlet property="locationLabel" destination="2AH-Ke-buY" id="gCz-xU-4ot"/>
                         <outlet property="quiteHappyButotn" destination="r7Z-6a-iZQ" id="bed-gD-rvs"/>
                         <outlet property="quiteSadButton" destination="uK1-Nz-gI9" id="s1a-9o-PJK"/>
                         <outlet property="sadButton" destination="dMx-qn-Rda" id="Tsn-As-U1A"/>
+                        <outlet property="thanksLabel" destination="rGS-g5-dYJ" id="Oim-Wp-rEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

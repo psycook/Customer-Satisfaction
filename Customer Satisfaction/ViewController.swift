@@ -10,15 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
     @IBOutlet weak var happyButton: UIButton!
     @IBOutlet weak var quiteHappyButotn: UIButton!
     @IBOutlet weak var quiteSadButton: UIButton!
     @IBOutlet weak var sadButton: UIButton!
+    @IBOutlet weak var thanksLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
 
+    var locationList: [String] = ["Parking Experience", "Check in Experience", "Security Experience", "Shopping Experience", "Boarding Experience"]
+    var locationIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        locationIndex = 0
+        locationLabel.text = locationList[locationIndex]
+        thanksLabel.hidden = true
+
+        //set up a gesture handler on the locationLabel
+        locationLabel.userInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.locationLabelTapped))
+        locationLabel.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,32 +39,32 @@ class ViewController: UIViewController {
 
     @IBAction func happyButtonTouched(sender: AnyObject) {
         print("sending happy face")
-
-        let json = ["MachineId":"Terminal - Security South", "Satisfaction":5];
+        showThanks("Very Happy - Thanks")
+        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":5];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
 
     @IBAction func quiteHappyButtonTouched(sender: AnyObject) {
         print("sending quite happy face")
-
-        let json = ["MachineId":"Terminal - Security South", "Satisfaction":4];
+        showThanks("Quite Happy - Thanks")
+        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":4];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
 
     @IBAction func quiteSadButtonTouhed(sender: AnyObject) {
         print("sending quite sad face")
-
-        let json = ["MachineId":"Terminal - Security South", "Satisfaction":2];
+        showThanks("Quite Sad - Sorry")
+        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":2];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
 
     @IBAction func sadButtonTouched(sender: AnyObject) {
         print("sending sad")
-
-        let json = ["MachineId":"Terminal - Security South", "Satisfaction":1];
+        showThanks("Very Sad - Sorry")
+        let json = ["MachineId":"" + locationList[locationIndex], "Satisfaction":1];
         let jsonData = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         sendRequest(jsonData)
     }
@@ -64,10 +75,7 @@ class ViewController: UIViewController {
 
         request.HTTPMethod = "POST"
         request.HTTPBody = payload
-
-        [request .addValue("application/json", forHTTPHeaderField: "Content-Type")];
-
-
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type");
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {
                 print("error=\(error)")
@@ -83,5 +91,30 @@ class ViewController: UIViewController {
             print("responseString = \(responseString)")
         }
         task.resume()
+    }
+    
+    func showThanks(text: String) {
+        thanksLabel.text = text
+        thanksLabel.alpha = 1
+        thanksLabel.hidden = false
+        var _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.hideThanks), userInfo: nil, repeats: false)
+    }
+    
+    func hideThanks() {
+        UIView.animateWithDuration(1.0, animations: {
+            self.thanksLabel.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.thanksLabel.hidden = true
+                self.thanksLabel.text = "Thanks"
+        })
+    }
+    
+    func locationLabelTapped(gestureRecognizer: UIGestureRecognizer) {
+        locationIndex += 1;
+        if(locationIndex >= locationList.count) {
+            locationIndex = 0;
+        }
+        locationLabel.text = locationList[locationIndex];
     }
 }
